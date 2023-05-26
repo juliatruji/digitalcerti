@@ -1,0 +1,4 @@
+DB_USERNAME: 'juliet'
+DB_PASSWORD: 'password'
+DB_NAME: 'digitalcerti'
+DB_HOST: 'localhost'
