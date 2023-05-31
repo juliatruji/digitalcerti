@@ -38,7 +38,8 @@ RSpec.configure do |config|
           }
         },
         schemas: {
-          user: UserSchema::OBJECT
+          user: UserSchema::OBJECT,
+          client: ClientSchema::OBJECT
         }
       }
     }

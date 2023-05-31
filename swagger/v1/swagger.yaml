@@ -1,0 +1,366 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/authentications":
+    post:
+      summary: Autenticacion
+      tags:
+      - Autenticación
+      parameters: []
+      responses:
+        '200':
+          description: Autenticación correcta
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token_type:
+                    type: string
+                  access_token:
+                    type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: Correo Electrónico
+                password:
+                  type: string
+                  format: password
+                  description: Contraseña
+              required:
+              - email
+              - password
+  "/users":
+    get:
+      summary: Lista de Usuarios
+      tags:
+      - Usuarios
+      parameters:
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: |+
+          Búsqueda por:
+
+            * Nombre de Depositante
+
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de Usuarios
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/user"
+    post:
+      summary: Crear Usuario
+      tags:
+      - Usuarios
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Usuario creado
+        '422':
+          description: Error al crear Usuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Nombre
+                    email:
+                      type: string
+                      description: Email
+                    phone:
+                      type: string
+                      description: Celular
+                    password:
+                      type: string
+                      description: Contraseña
+                    user_type:
+                      type: string
+                      enum:
+                      - Super_admin
+                      - location_admin
+                      - client_admin
+                      description: Tipo de usuario
+                    active:
+                      type: boolean
+                      description: Si esta Activo
+                    client_id:
+                      type: integer
+                      description: ID del Cliente
+  "/users/{id}":
+    get:
+      summary: Detalle de un Usuario
+      tags:
+      - Usuarios
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/user"
+        '404':
+          description: Usuario no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Usuario
+      tags:
+      - Usuarios
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Usuario actualizado
+        '422':
+          description: Error al actualizar el Usuario
+        '404':
+          description: Usuario no encontrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Nombre
+                    email:
+                      type: string
+                      description: Email
+                    phone:
+                      type: string
+                      description: Celular
+                    password:
+                      type: string
+                      description: Contraseña
+                    user_type:
+                      type: string
+                      enum:
+                      - Super_admin
+                      - location_admin
+                      - client_admin
+                      description: Tipo de usuario
+                    active:
+                      type: boolean
+                      description: Si esta Activo
+                    client_id:
+                      type: integer
+                      description: ID del Cliente
+servers:
+- url: http://localhost:3000/api/v1
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    user:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        name:
+          type: string
+          description: Nombre
+        phone:
+          type: string
+          description: Celular
+        email:
+          type: string
+          description: Email
+        active:
+          type: boolean
+          description: Si esta Activo
+        user_type:
+          type: string
+          enum:
+          - super_admin
+          - location_admin
+          - client_admin
+          description: Tipo de usuario
+        client:
+          "$ref": "#/components/schemas/client"
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de actualización
+      required:
+      - id
+    client:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        name:
+          type: string
+          description: Nombre
+        phone:
+          type: string
+          description: Telefono
+        email:
+          type: string
+          description: correo electrónico
+        slug:
+          type: string
+          description: URL
+        description:
+          type: string
+          description: Descripción
+        tradename:
+          type: string
+          description: Nombre Comercial
+        identification:
+          type: string
+          description: RUC o Identificación
+        logo:
+          type: string
+          description: Logo
+        country:
+          type: string
+          description: Pais
+        location:
+          type: string
+          description: Departamento o Localidad
+        address:
+          type: string
+          description: Dirección
+        social:
+          type: string
+          description: Redes Sociales
+        website:
+          type: string
+          description: Sitio Web
+        colors:
+          type: string
+          description: Colores
+        domain:
+          type: string
+          description: Dominio
+        banner:
+          type: string
+          description: Banner
+        active:
+          type: boolean
+          description: Si esta Activo
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de actualización
+      required:
+      - id
+...
