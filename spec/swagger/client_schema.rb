@@ -22,6 +22,16 @@ module ClientSchema
       active: { type: :boolean, description: 'Si esta Activo' },
       created_at: { type: :string, format: 'date-time', description: 'Fecha de creación' },
       updated_at: { type: :string, format: 'date-time', description: 'Fecha de actualización' },
+      geolocation: {
+        type: :object,
+        properties: {
+          id: { type: :integer, description: 'ID de geolocalización' },
+          country: { type: :string, description: 'País' },
+          department: { type: :string, description: 'Departamento' },
+          province: { type: :string, description: 'Provincia' },
+          district: { type: :string, description: 'Distrito' }
+        }
+      }
     },
     required: [:id]
   }.freeze

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2023_05_25_212740) do
     t.string "description"
     t.string "identification"
     t.string "logo"
-    t.string "social"
+    t.jsonb "social", default: {}
     t.string "website"
     t.boolean "active"
     t.jsonb "colors", default: {}
