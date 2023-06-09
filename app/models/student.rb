@@ -1,3 +1,3 @@
 class Student < ApplicationRecord
-  has_many :certificates, dependent: :destroy
+  has_many :student_certificates, dependent: :destroy
 end
