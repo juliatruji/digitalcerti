@@ -10,27 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_25_212740) do
+ActiveRecord::Schema.define(version: 2023_06_09_025151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "certificates", force: :cascade do |t|
+  create_table "certificate_categories", force: :cascade do |t|
     t.string "name"
-    t.string "description"
-    t.string "folio"
-    t.string "record"
-    t.date "issue_date"
-    t.date "expiration_date"
-    t.string "file"
-    t.integer "category"
-    t.integer "status", default: 0
-    t.bigint "location_id", null: false
-    t.bigint "student_id", null: false
+    t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_certificates_on_location_id"
-    t.index ["student_id"], name: "index_certificates_on_student_id"
+    t.index ["client_id"], name: "index_certificate_categories_on_client_id"
+  end
+
+  create_table "certificate_details", force: :cascade do |t|
+    t.string "name"
+    t.string "folio"
+    t.string "record"
+    t.string "description"
+    t.bigint "location_id", null: false
+    t.bigint "certificate_category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["certificate_category_id"], name: "index_certificate_details_on_certificate_category_id"
+    t.index ["location_id"], name: "index_certificate_details_on_location_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -63,6 +66,7 @@ ActiveRecord::Schema.define(version: 2023_05_25_212740) do
     t.string "code_phone"
     t.string "language"
     t.string "capital"
+    t.string "flag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -120,6 +124,17 @@ ActiveRecord::Schema.define(version: 2023_05_25_212740) do
     t.index ["department_id"], name: "index_provinces_on_department_id"
   end
 
+  create_table "student_certificates", force: :cascade do |t|
+    t.date "issue_date"
+    t.date "expiration_date"
+    t.string "file"
+    t.bigint "student_id", null: false
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_student_certificates_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "name"
     t.string "phone"
@@ -157,8 +172,9 @@ ActiveRecord::Schema.define(version: 2023_05_25_212740) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "certificates", "locations"
-  add_foreign_key "certificates", "students"
+  add_foreign_key "certificate_categories", "clients"
+  add_foreign_key "certificate_details", "certificate_categories"
+  add_foreign_key "certificate_details", "locations"
   add_foreign_key "clients", "geolocations"
   add_foreign_key "departments", "countries"
   add_foreign_key "districts", "provinces"
@@ -168,6 +184,7 @@ ActiveRecord::Schema.define(version: 2023_05_25_212740) do
   add_foreign_key "locations", "clients"
   add_foreign_key "locations", "geolocations"
   add_foreign_key "provinces", "departments"
+  add_foreign_key "student_certificates", "students"
   add_foreign_key "user_locations", "locations"
   add_foreign_key "user_locations", "users"
   add_foreign_key "users", "clients"

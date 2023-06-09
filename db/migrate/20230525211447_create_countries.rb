@@ -8,6 +8,7 @@ class CreateCountries < ActiveRecord::Migration[6.1]
       t.string :code_phone
       t.string :language
       t.string :capital
+      t.string :flag
 
       t.timestamps
     end

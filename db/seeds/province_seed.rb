@@ -49,175 +49,175 @@ ucayali_provinces = [ "Coronel Portillo", "Atalaya", "Padre Abad", "Purús" ]
 huancavelica_provinces = [ "Huancavelica", "Acobamba", "Angaraes", "Castrovirreyna", "Churcampa", "Huaytará", "Tayacaja" ]
 
 amazonas_provinces.each do |province|
-  department_amazonas.province.find_or_create_by(
+  department_amazonas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 ancash_provinces.each do |province|
-  department_ancash.province.find_or_create_by(
+  department_ancash.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 apurimac_provinces.each do |province|
-  department_apurimac.province.find_or_create_by(
+  department_apurimac.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 arequipa_provinces.each do |province|
-  department_arequipa.province.find_or_create_by(
+  department_arequipa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 ayacucho_provinces.each do |province|
-  department_ayacucho.province.find_or_create_by(
+  department_ayacucho.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cajamarca_provinces.each do |province|
-  department_cajamarca.province.find_or_create_by(
+  department_cajamarca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cusco_provinces.each do |province|
-  department_cusco.province.find_or_create_by(
+  department_cusco.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 ica_provinces.each do |province|
-  department_ica.province.find_or_create_by(
+  department_ica.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 junin_provinces.each do |province|
-  department_junin.province.find_or_create_by(
+  department_junin.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 la_libertad_provinces.each do |province|
-  department_junin.province.find_or_create_by(
+  department_junin.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 junin_provinces.each do |province|
-  department_libertad.province.find_or_create_by(
+  department_libertad.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 lambayeque_provinces.each do |province|
-  department_lambayeque.province.find_or_create_by(
+  department_lambayeque.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 lima_provinces.each do |province|
-  department_lima.province.find_or_create_by(
+  department_lima.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 loreto_provinces.each do |province|
-  department_loreto.province.find_or_create_by(
+  department_loreto.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 madre_de_dios_provinces.each do |province|
-  department_madre_dios.province.find_or_create_by(
+  department_madre_dios.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 moquegua_provinces.each do |province|
-  department_moquegua.province.find_or_create_by(
+  department_moquegua.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 pasco_provinces.each do |province|
-  department_pasco.province.find_or_create_by(
+  department_pasco.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 piura_provinces.each do |province|
-  department_piura.province.find_or_create_by(
+  department_piura.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 puno_provinces.each do |province|
-  department_puno.province.find_or_create_by(
+  department_puno.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 san_martin_provinces.each do |province|
-  department_martin.province.find_or_create_by(
+  department_martin.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tacna_provinces.each do |province|
-  department_tacna.province.find_or_create_by(
+  department_tacna.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tumbes_provinces.each do |province|
-  department_tumbes.province.find_or_create_by(
+  department_tumbes.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 ucayali_provinces.each do |province|
-  department_ucayali.province.find_or_create_by(
+  department_ucayali.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
-department_huanuco.each do |province|
-  huanuco_provinces.province.find_or_create_by(
+huanuco_provinces.each do |province|
+  department_huanuco .provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
-department_huancavelica.each do |province|
-  huancavelica_provinces.province.find_or_create_by(
+huancavelica_provinces.each do |province|
+  department_huancavelica.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -288,210 +288,210 @@ zacatecas_provinces = [ "Apulco", "Atolinga", "Benito Juárez", "Calera", "Cañi
 
 
 baja_california_provinces.each do |province|
-  department_baja_california.province.find_or_create_by(
+  department_baja_california.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 baja_california_sur_provinces.each do |province|
-  department_baja_california_sur.province.find_or_create_by(
+  department_baja_california_sur.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 campeche_provinces.each do |province|
-  department_campeche.province.find_or_create_by(
+  department_campeche.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 chiapas_provinces.each do |province|
-  department_chiapas.province.find_or_create_by(
+  department_chiapas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 chihuahua_provinces.each do |province|
-  department_chihuahua.province.find_or_create_by(
+  department_chihuahua.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 ciudad_de_mexico_provinces.each do |province|
-  department_ciudad_de_mexico.province.find_or_create_by(
+  department_ciudad_de_mexico.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 coahuila_provinces.each do |province|
-  department_coahuila.province.find_or_create_by(
+  department_coahuila.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 colima_provinces.each do |province|
-  department_colima.province.find_or_create_by(
+  department_colima.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 durango_provinces.each do |province|
-  department_durango.province.find_or_create_by(
+  department_durango.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 guanajuato_provinces.each do |province|
-  department_guanajuato.province.find_or_create_by(
+  department_guanajuato.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 guerrero_provinces.each do |province|
-  department_guerrero.province.find_or_create_by(
+  department_guerrero.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 hidalgo_provinces.each do |province|
-  department_hidalgo.province.find_or_create_by(
+  department_hidalgo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 jalisco_provinces.each do |province|
-  department_jalisco.province.find_or_create_by(
+  department_jalisco.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 michoacan_provinces.each do |province|
-  department_michoacan.province.find_or_create_by(
+  department_michoacan.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 morelos_provinces.each do |province|
-  department_morelos.province.find_or_create_by(
+  department_morelos.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 nayarit_provinces.each do |province|
-  department_nayarit.province.find_or_create_by(
+  department_nayarit.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 nuevo_leon_provinces.each do |province|
-  department_nuevo_leon.province.find_or_create_by(
+  department_nuevo_leon.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 oaxaca_provinces.each do |province|
-  department_oaxaca.province.find_or_create_by(
+  department_oaxaca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 puebla_provinces.each do |province|
-  department_puebla.province.find_or_create_by(
+  department_puebla.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 queretaro_provinces.each do |province|
-  department_queretaro.province.find_or_create_by(
+  department_queretaro.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 quintana_roo_provinces.each do |province|
-  department_quintana_roo.province.find_or_create_by(
+  department_quintana_roo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 san_luis_potosi_provinces.each do |province|
-  department_san_luis_potosi.province.find_or_create_by(
+  department_san_luis_potosi.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 sinaloa_provinces.each do |province|
-  department_sinaloa.province.find_or_create_by(
+  department_sinaloa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 sonora_provinces.each do |province|
-  department_sonora.province.find_or_create_by(
+  department_sonora.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tabasco_provinces.each do |province|
-  department_tabasco.province.find_or_create_by(
+  department_tabasco.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tamaulipas_provinces.each do |province|
-  department_tamaulipas.province.find_or_create_by(
+  department_tamaulipas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tlaxcala_provinces.each do |province|
-  department_tlaxcala.province.find_or_create_by(
+  department_tlaxcala.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 veracruz_provinces.each do |province|
-  department_veracruz.province.find_or_create_by(
+  department_veracruz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 yucatan_provinces.each do |province|
-  department_yucatan.province.find_or_create_by(
+  department_yucatan.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 zacatecas_provinces.each do |province|
-  department_zacatecas.province.find_or_create_by(
+  department_zacatecas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -549,168 +549,168 @@ tierra_del_fuego_provinces = [ "Ushuaia", "Río Grande", "Tolhuin" ]
 tucuman_provinces = [ "San Miguel de Tucumán", "Yerba Buena", "Tafí Viejo", "Banda del Río Salí", "Alderetes", "Río Seco" ]
 
 ciudad_autonoma_buenos_aires_provinces.each do |province|
-  department_autonoma_buenos_aires.province.find_or_create_by(
+  department_autonoma_buenos_aires.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 buenos_aires_provinces.each do |province|
-  department_buenos_aires.province.find_or_create_by(
+  department_buenos_aires.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 catamarca_provinces.each do |province|
-  department_catamarca.province.find_or_create_by(
+  department_catamarca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 chubut_provinces.each do |province|
-  department_chubut.province.find_or_create_by(
+  department_chubut.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 chaco_provinces.each do |province|
-  department_chaco.province.find_or_create_by(
+  department_chaco.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cordoba_provinces.each do |province|
-  department_cordoba.province.find_or_create_by(
+  department_cordoba.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 corrientes_provinces.each do |province|
-  department_corrientes.province.find_or_create_by(
+  department_corrientes.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 entre_rios_provinces.each do |province|
-  department_entre_rios.province.find_or_create_by(
+  department_entre_rios.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 formosa_provinces.each do |province|
-  department_formosa.province.find_or_create_by(
+  department_formosa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 jujuy_provinces.each do |province|
-  department_jujuy.province.find_or_create_by(
+  department_jujuy.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 la_pampa_provinces.each do |province|
-  department_pampa.province.find_or_create_by(
+  department_pampa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 la_rioja_provinces.each do |province|
-  department_rioja.province.find_or_create_by(
+  department_rioja.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 mendoza_provinces.each do |province|
-  department_mendoza.province.find_or_create_by(
+  department_mendoza.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 misiones_provinces.each do |province|
-  department_misiones.province.find_or_create_by(
+  department_misiones.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 neuquen_provinces.each do |province|
-  department_neuquen.province.find_or_create_by(
+  department_neuquen.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 rio_negro_provinces.each do |province|
-  department_rio_negro.province.find_or_create_by(
+  department_rio_negro.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 salta_provinces.each do |province|
-  department_salta.province.find_or_create_by(
+  department_salta.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 san_juan_provinces.each do |province|
-  department_san_juan.province.find_or_create_by(
+  department_san_juan.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 san_luis_provinces.each do |province|
-  department_san_luis.province.find_or_create_by(
+  department_san_luis.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 santa_cruz_provinces.each do |province|
-  department_santa_cruz.province.find_or_create_by(
+  department_santa_cruz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 santa_fe_provinces.each do |province|
-  department_santa_fe.province.find_or_create_by(
+  department_santa_fe.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 santiago_del_estero_provinces.each do |province|
-  department_santiago_estero.province.find_or_create_by(
+  department_santiago_estero.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tierra_del_fuego_provinces.each do |province|
-  department_tierra_fuego.province.find_or_create_by(
+  department_tierra_fuego.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tucuman_provinces.each do |province|
-  department_tucuman.province.find_or_create_by(
+  department_tucuman.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -782,217 +782,217 @@ vaupes_provinces = [ "Mitú", "Carurú", "Taraira", "Pacoa", "Yavaraté" ]
 vichada_provinces = [ "Puerto Carreño", "La Primavera", "Santa Rosalía", "Cumaribo" ]
 
 amazonas_provinces.each do |province|
-  department_amazonas.province.find_or_create_by(
+  department_amazonas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 antioquia_provinces.each do |province|
-  department_antioquia.province.find_or_create_by(
+  department_antioquia.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 arauca_provinces.each do |province|
-  department_arauca.province.find_or_create_by(
+  department_arauca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 atlantico_provinces.each do |province|
-  department_atlantico.province.find_or_create_by(
+  department_atlantico.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 bogota_localidades.each do |province|
-  department_bogota.province.find_or_create_by(
+  department_bogota.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 bolivar_provinces.each do |province|
-  department_bolivar.province.find_or_create_by(
+  department_bolivar.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 boyaca_provinces.each do |province|
-  department_boyaca.province.find_or_create_by(
+  department_boyaca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 caldas_provinces.each do |province|
-  department_caldas.province.find_or_create_by(
+  department_caldas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 caqueta_provinces.each do |province|
-  department_caqueta.province.find_or_create_by(
+  department_caqueta.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 casanare_provinces.each do |province|
-  department_casanare.province.find_or_create_by(
+  department_casanare.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cauca_provinces.each do |province|
-  department_cauca.province.find_or_create_by(
+  department_cauca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cesar_provinces.each do |province|
-  department_cesar.province.find_or_create_by(
+  department_cesar.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 choco_provinces.each do |province|
-  department_choco.province.find_or_create_by(
+  department_choco.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cordoba_provinces.each do |province|
-  department_cordoba.province.find_or_create_by(
+  department_cordoba.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cundinamarca_provinces.each do |province|
-  department_cundinamarca.province.find_or_create_by(
+  department_cundinamarca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 guaviare_provinces.each do |province|
-  department_guaviare.province.find_or_create_by(
+  department_guaviare.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 huila_provinces.each do |province|
-  department_huila.province.find_or_create_by(
+  department_huila.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 la_guajira_provinces.each do |province|
-  department_guajira.province.find_or_create_by(
+  department_guajira.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 magdalena_provinces.each do |province|
-  department_magdalena.province.find_or_create_by(
+  department_magdalena.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 meta_provinces.each do |province|
-  department_meta.province.find_or_create_by(
+  department_meta.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 narino_provinces.each do |province|
-  department_narino.province.find_or_create_by(
+  department_narino.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 norte_santander_provinces.each do |province|
-  department_norte_santander.province.find_or_create_by(
+  department_norte_santander.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 putumayo_provinces.each do |province|
-  department_putumayo.province.find_or_create_by(
+  department_putumayo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 quindio_provinces.each do |province|
-  department_quindio.province.find_or_create_by(
+  department_quindio.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 risaralda_provinces.each do |province|
-  department_risaralda.province.find_or_create_by(
+  department_risaralda.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 santander_provinces.each do |province|
-  department_santander.province.find_or_create_by(
+  department_santander.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 sucre_provinces.each do |province|
-  department_sucre.province.find_or_create_by(
+  department_sucre.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tolima_provinces.each do |province|
-  department_tolima.province.find_or_create_by(
+  department_tolima.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 valle_del_cauca_provinces.each do |province|
-  department_valle_cauca.province.find_or_create_by(
+  department_valle_cauca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 vaupes_provinces.each do |province|
-  department_vaupes.province.find_or_create_by(
+  department_vaupes.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 vichada_provinces.each do |province|
-  department_vichada.province.find_or_create_by(
+  department_vichada.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -1034,112 +1034,112 @@ aysen_provinces = [ "Aysén", "Capitán Prat" ]
 magallanes_provinces = [ "Magallanes", "Antártica Chilena", "Tierra del Fuego", "Última Esperanza" ]
 
 arica_parinacota_provinces.each do |province|
-  department_arica_parinacota.province.find_or_create_by(
+  department_arica_parinacota.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tarapaca_provinces.each do |province|
-  department_tarapaca.province.find_or_create_by(
+  department_tarapaca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 antofagasta_provinces.each do |province|
-  department_antofagasta.province.find_or_create_by(
+  department_antofagasta.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 atacama_provinces.each do |province|
-  department_atacama.province.find_or_create_by(
+  department_atacama.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 coquimbo_provinces.each do |province|
-  department_coquimbo.province.find_or_create_by(
+  department_coquimbo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 valparaiso_provinces.each do |province|
-  department_valparaiso.province.find_or_create_by(
+  department_valparaiso.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 metropolitana_provinces.each do |province|
-  department_region_metropolitana.province.find_or_create_by(
+  department_region_metropolitana.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 ohiggins_provinces.each do |province|
-  department_libertador.province.find_or_create_by(
+  department_libertador.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 maule_provinces.each do |province|
-  department_maule.province.find_or_create_by(
+  department_maule.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 nuble_provinces.each do |province|
-  department_nuble.province.find_or_create_by(
+  department_nuble.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 biobio_provinces.each do |province|
-  department_biobio.province.find_or_create_by(
+  department_biobio.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 araucania_provinces.each do |province|
-  department_araucania.province.find_or_create_by(
+  department_araucania.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 los_rios_provinces.each do |province|
-  department_rios.province.find_or_create_by(
+  department_rios.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 los_lagos_provinces.each do |province|
-  department_lagos.province.find_or_create_by(
+  department_lagos.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 aysen_provinces.each do |province|
-  department_aysen.province.find_or_create_by(
+  department_aysen.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 magallanes_provinces.each do |province|
-  department_magallanes.province.find_or_create_by(
+  department_magallanes.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -1197,168 +1197,168 @@ tungurahua_provinces = [ "Tungurahua" ]
 zamora_chinchipe_provinces = [ "Zamora", "Chinchipe" ]
 
 azuay_provinces.each do |province|
-  department_azuay.province.find_or_create_by(
+  department_azuay.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 bolivar_provinces.each do |province|
-  department_bolivar.province.find_or_create_by(
+  department_bolivar.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 canar_provinces.each do |province|
-  department_canar.province.find_or_create_by(
+  department_canar.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 carchi_provinces.each do |province|
-  department_carchi.province.find_or_create_by(
+  department_carchi.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 chimborazo_provinces.each do |province|
-  department_chimborazo.province.find_or_create_by(
+  department_chimborazo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cotopaxi_provinces.each do |province|
-  department_cotopaxi.province.find_or_create_by(
+  department_cotopaxi.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 el_oro_provinces.each do |province|
-  department_el_oro.province.find_or_create_by(
+  department_el_oro.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 esmeraldas_provinces.each do |province|
-  department_esmeralda.province.find_or_create_by(
+  department_esmeralda.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 galapagos_provinces.each do |province|
-  department_galapagos.province.find_or_create_by(
+  department_galapagos.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 guayas_provinces.each do |province|
-  department_guayas.province.find_or_create_by(
+  department_guayas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 imbabura_provinces.each do |province|
-  department_imbabura.province.find_or_create_by(
+  department_imbabura.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 loja_provinces.each do |province|
-  department_loja.province.find_or_create_by(
+  department_loja.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 los_rios_provinces.each do |province|
-  department_los_rios.province.find_or_create_by(
+  department_los_rios.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 manabi_provinces.each do |province|
-  department_manabi.province.find_or_create_by(
+  department_manabi.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 morona_santiago_provinces.each do |province|
-  department_morona_santiago.province.find_or_create_by(
+  department_morona_santiago.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 napo_provinces.each do |province|
-  department_napo.province.find_or_create_by(
+  department_napo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 orellana_provinces.each do |province|
-  department_orellana.province.find_or_create_by(
+  department_orellana.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 pastaza_provinces.each do |province|
-  department_pastaza.province.find_or_create_by(
+  department_pastaza.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 pichincha_provinces.each do |province|
-  department_pichincha.province.find_or_create_by(
+  department_pichincha.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 santa_elena_provinces.each do |province|
-  department_santa_elena.province.find_or_create_by(
+  department_santa_elena.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 santo_domingo_provinces.each do |province|
-  department_santo_domingo.province.find_or_create_by(
+  department_santo_domingo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 sucumbios_provinces.each do |province|
-  department_sucumbios.province.find_or_create_by(
+  department_sucumbios.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tungurahua_provinces.each do |province|
-  department_tungurahua.province.find_or_create_by(
+  department_tungurahua.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 zamora_chinchipe_provinces.each do |province|
-  department_zamora_chinchipe.province.find_or_create_by(
+  department_zamora_chinchipe.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -1407,126 +1407,126 @@ zacapa_provinces = [ "Zacapa", "Estanzuela", "Río Hondo", "Gualán", "Teculutá
 
 
 provincia_alta_verapaz.each do |province|
-  department_alta_verapaz.province.find_or_create_by(
+  department_alta_verapaz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincia_baja_verapaz.each do |province|
-  department_baja_verapaz.province.find_or_create_by(
+  department_baja_verapaz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 departamento_chimaltenango.each do |province|
-  department_chimaltenago.province.find_or_create_by(
+  department_chimaltenago.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 departamento_chiquimula.each do |province|
-  department_chiquimula.province.find_or_create_by(
+  department_chiquimula.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 escuintla_provinces.each do |province|
-  department_escuintla.province.find_or_create_by(
+  department_escuintla.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 huehuetenango_provinces.each do |province|
-  department_huehuetenango.province.find_or_create_by(
+  department_huehuetenango.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 izabal_provinces.each do |province|
-  department_izabal.province.find_or_create_by(
+  department_izabal.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 jalapa_provinces.each do |province|
-  department_jalapa.province.find_or_create_by(
+  department_jalapa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 peten_provinces.each do |province|
-  department_peten.province.find_or_create_by(
+  department_peten.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 quetzaltenango_provinces.each do |province|
-  department_quetzaltenango.province.find_or_create_by(
+  department_quetzaltenango.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 quiche_provinces.each do |province|
-  department_quinche.province.find_or_create_by(
+  department_quinche.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 retalhuleu_provinces.each do |province|
-  department_retalhuleu.province.find_or_create_by(
+  department_retalhuleu.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 sacatepequez_provinces.each do |province|
-  department_sacatepequez.province.find_or_create_by(
+  department_sacatepequez.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 san_marcos_provinces.each do |province|
-  department_san_marcos.province.find_or_create_by(
+  department_san_marcos.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 santa_rosa_provinces.each do |province|
-  department_santa_rosa.province.find_or_create_by(
+  department_santa_rosa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 suchitepequez_provinces.each do |province|
-  department_suchitepequez.province.find_or_create_by(
+  department_suchitepequez.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 totonicapan_provinces.each do |province|
-  department_totonicapan.province.find_or_create_by(
+  department_totonicapan.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 zacapa_provinces.each do |province|
-  department_zacapa.province.find_or_create_by(
+  department_zacapa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -1560,84 +1560,84 @@ cadiz_provinces = [ "Cádiz", "Algeciras", "Jerez de la Frontera", "San Fernando
 
 
 coruna_provinces.each do |province|
-  department_curuña.province.find_or_create_by(
+  department_curuña.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 alava_provinces.each do |province|
-  department_alvara.province.find_or_create_by(
+  department_alvara.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 albacete_provinces.each do |province|
-  department_albacete.province.find_or_create_by(
+  department_albacete.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 alicante_provinces.each do |province|
-  department_alicante.province.find_or_create_by(
+  department_alicante.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 almeria_provinces.each do |province|
-  department_almeria.province.find_or_create_by(
+  department_almeria.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 asturias_provinces.each do |province|
-  department_asturias.province.find_or_create_by(
+  department_asturias.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 avila_provinces.each do |province|
-  department_avila.province.find_or_create_by(
+  department_avila.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 badajoz_provinces.each do |province|
-  department_badajoz.province.find_or_create_by(
+  department_badajoz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 barcelona_provinces.each do |province|
-  department_barcelona.province.find_or_create_by(
+  department_barcelona.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 burgos_provinces.each do |province|
-  department_burgos.province.find_or_create_by(
+  department_burgos.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 caceres_provinces.each do |province|
-  department_caceres.province.find_or_create_by(
+  department_caceres.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cadiz_provinces.each do |province|
-  department_cadiz.province.find_or_create_by(
+  department_cadiz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -1685,126 +1685,126 @@ tacuarembo_provinces = [ "Tacuarembó", "Paso de los Toros", "San Gregorio de Po
 treinta_tres_provinces = [ "Treinta y Tres", "Vergara", "Santa Clara de Olimar", "Río Branco", "Melo", "Aceguá", "Arrozal Treinta y Tres", "Poblado Vichadero" ]
 
 artiga_provinces.each do |province|
-  department_artigas.province.find_or_create_by(
+  department_artigas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 canelone_provinces.each do |province|
-  department_canelones.province.find_or_create_by(
+  department_canelones.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cerro_largo_provinces.each do |province|
-  department_cerro_largo.province.find_or_create_by(
+  department_cerro_largo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 colonia_provinces.each do |province|
-  department_colonia.province.find_or_create_by(
+  department_colonia.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 durazno_provinces.each do |province|
-  department_durazno.province.find_or_create_by(
+  department_durazno.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 flores_provinces.each do |province|
-  department_flores.province.find_or_create_by(
+  department_flores.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 florida_provinces.each do |province|
-  department_florida.province.find_or_create_by(
+  department_florida.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 lavalleja_provinces.each do |province|
-  department_lavalleja.province.find_or_create_by(
+  department_lavalleja.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 maldonado_provinces.each do |province|
-  department_maldonado.province.find_or_create_by(
+  department_maldonado.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 montevideo_provinces.each do |province|
-  department_montivideo.province.find_or_create_by(
+  department_montivideo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 paysandu_provinces.each do |province|
-  department_paysandu.province.find_or_create_by(
+  department_paysandu.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 rio_negro_provinces.each do |province|
-  department_rio_negro.province.find_or_create_by(
+  department_rio_negro.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 rivera_provinces.each do |province|
-  department_rivera.province.find_or_create_by(
+  department_rivera.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 salto_provinces.each do |province|
-  department_salto.province.find_or_create_by(
+  department_salto.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 san_jose_provinces.each do |province|
-  department_san_jose.province.find_or_create_by(
+  department_san_jose.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 soriano_provinces.each do |province|
-  department_soriano.province.find_or_create_by(
+  department_soriano.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 tacuarembo_provinces.each do |province|
-  department_tacurembo.province.find_or_create_by(
+  department_tacurembo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 treinta_tres_provinces.each do |province|
-  department_treinta_tres.province.find_or_create_by(
+  department_treinta_tres.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -1828,49 +1828,49 @@ puntarenas_provinces = [ "Puntarenas", "Esparza", "Buenos Aires", "Montes de Oro
 san_jose_provinces = [ "San José", "Escazú", "Desamparados", "Puriscal", "Tarrazú", "Aserrí", "Mora", "Goicoechea", "Santa Ana", "Alajuelita", "Vázquez de Coronado", "Acosta", "Tibás", "Moravia", "Montes de Oca", "Turrubares", "Dota", "Curridabat", "Pérez Zeledón", "León Cortés Castro" ]
 
 alajuela_provinces.each do |province|
-  department_alajuela.province.find_or_create_by(
+  department_alajuela.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 cartago_provinces.each do |province|
-  department_cartago.province.find_or_create_by(
+  department_cartago.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 guanacaste_provinces.each do |province|
-  department_guanacaste.province.find_or_create_by(
+  department_guanacaste.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 heredia_provinces.each do |province|
-  department_heredia.province.find_or_create_by(
+  department_heredia.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 limon_provinces.each do |province|
-  department_limon.province.find_or_create_by(
+  department_limon.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 puntarenas_provinces.each do |province|
-  department_puntarenas.province.find_or_create_by(
+  department_puntarenas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 san_jose_provinces.each do |province|
-  department_san_jose.province.find_or_create_by(
+  department_san_jose.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -1916,119 +1916,119 @@ provinces_sanjuan = [ "San Juan de la Maguana", "Bohechío", "El Cercado", "Las 
 provinces_santiago = [ "Santiago de los Caballeros", "Bisonó", "Jánico", "Licey al Medio", "Puñal", "Sabana Iglesia", "San José de las Matas", "Tamboril", "Villa González" ]
 
 provinces_azua.each do |province|
-  department_azua.province.find_or_create_by(
+  department_azua.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_bahoruco.each do |province|
-  department_bahoruco.province.find_or_create_by(
+  department_bahoruco.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_barahona.each do |province|
-  department_barahona.province.find_or_create_by(
+  department_barahona.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_dajabon.each do |province|
-  department_dajabon.province.find_or_create_by(
+  department_dajabon.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_duarte.each do |province|
-  department_duarte.province.find_or_create_by(
+  department_duarte.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_el_seibo.each do |province|
-  department_seibo.province.find_or_create_by(
+  department_seibo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_espaillat.each do |province|
-  department_espaillat.province.find_or_create_by(
+  department_espaillat.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_hato_mayor.each do |province|
-  department_hato_mayor.province.find_or_create_by(
+  department_hato_mayor.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_hermanas_mirabal.each do |province|
-  department_hermanas.province.find_or_create_by(
+  department_hermanas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_independencia.each do |province|
-  department_independencia.province.find_or_create_by(
+  department_independencia.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_monte_plata.each do |province|
-  department_monte_plata.province.find_or_create_by(
+  department_monte_plata.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_pedernales.each do |province|
-  department_pedernales.province.find_or_create_by(
+  department_pedernales.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_peravia.each do |province|
-  department_peravia.province.find_or_create_by(
+  department_peravia.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_puerto_plata.each do |province|
-  department_puerto_plata.province.find_or_create_by(
+  department_puerto_plata.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_samana.each do |province|
-  department_samana.province.find_or_create_by(
+  department_samana.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_sanjuan.each do |province|
-  department_san_juan.province.find_or_create_by(
+  department_san_juan.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_santiago.each do |province|
-  department_santiago.province.find_or_create_by(
+  department_santiago.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -2057,63 +2057,63 @@ provincias_pando = [ "Manuripi", "Nicolás Suárez", "Federico Román", "Madre d
 
 
 provincias_chuquisaca.each do |province|
-  department_chuquisaca.province.find_or_create_by(
+  department_chuquisaca.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_la_paz.each do |province|
-  department_la_paz.province.find_or_create_by(
+  department_la_paz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_cochabamba.each do |province|
-  department_cochabamba.province.find_or_create_by(
+  department_cochabamba.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_oruro.each do |province|
-  department_oruro.province.find_or_create_by(
+  department_oruro.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_potosi.each do |province|
-  department_potosi.province.find_or_create_by(
+  department_potosi.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_tarija.each do |province|
-  department_tarija.province.find_or_create_by(
+  department_tarija.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_santa_cruz.each do |province|
-  department_santa_cruz.province.find_or_create_by(
+  department_santa_cruz.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_beni.each do |province|
-  department_beni.province.find_or_create_by(
+  department_beni.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_pando.each do |province|
-  department_pando.province.find_or_create_by(
+  department_pando.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
@@ -2158,112 +2158,112 @@ provinces_sucre = [ "Altagracia", "Ayacucho", "Bolívar", "Cajigal", "Gran Maris
 provinces_tachira = [ "Andrés Bello", "Antonio Rómulo Costa", "Ayacucho", "Bolívar", "Cárdenas", "Córdoba", "Fernández Feo", "Francisco de Miranda", "García de Hevia", "Guásimos", "Independencia", "Jáuregui", "José María Vargas", "Junín", "Libertad", "Libertador", "Lobatera", "Michelena", "Panamericano", "Pedro María Ureña", "Rafael Urdaneta", "Samuel Darío Maldonado", "San Cristóbal", "Seboruco", "Simón Rodríguez", "Sucre", "Torbes", "Uribante", "San Judas Tadeo" ]
 
 provincias_amazonas.each do |province|
-  department_amazonas.province.find_or_create_by(
+  department_amazonas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_anzoategui.each do |province|
-  department_anzoategui.province.find_or_create_by(
+  department_anzoategui.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_apure.each do |province|
-  department_apure.province.find_or_create_by(
+  department_apure.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_aragua.each do |province|
-  department_aragua.province.find_or_create_by(
+  department_aragua.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_barinas.each do |province|
-  department_barinas.province.find_or_create_by(
+  department_barinas.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_bolivar.each do |province|
-  department_bolivar.province.find_or_create_by(
+  department_bolivar.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_carabobo.each do |province|
-  department_carabobo.province.find_or_create_by(
+  department_carabobo.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_cojedes.each do |province|
-  department_cojedes.province.find_or_create_by(
+  department_cojedes.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provincias_delta_amacuro.each do |province|
-  department_delta_amacuro.province.find_or_create_by(
+  department_delta_amacuro.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_falcon.each do |province|
-  department_falcon.province.find_or_create_by(
+  department_falcon.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_guarico.each do |province|
-  department_guarico.province.find_or_create_by(
+  department_guarico.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_lara.each do |province|
-  department_lara.province.find_or_create_by(
+  department_lara.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_merida.each do |province|
-  department_merida.province.find_or_create_by(
+  department_merida.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_portuguesa.each do |province|
-  department_portuguesa.province.find_or_create_by(
+  department_portuguesa.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_sucre.each do |province|
-  department_sucre.province.find_or_create_by(
+  department_sucre.provinces.find_or_create_by(
     name: province,
     var_name: province
   )
 end
 
 provinces_tachira.each do |province|
-  department_tachira.province.find_or_create_by(
+  department_tachira.provinces.find_or_create_by(
     name: province,
     var_name: province
   )

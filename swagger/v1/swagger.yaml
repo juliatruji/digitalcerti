@@ -164,6 +164,21 @@ paths:
             schema:
               type: object
               properties:
+                geolocation:
+                  type: object
+                  properties:
+                    country:
+                      type: string
+                      description: País
+                    department:
+                      type: string
+                      description: Departamento
+                    province:
+                      type: string
+                      description: Provincia
+                    district:
+                      type: string
+                      description: Distrito
                 client:
                   type: object
                   properties:
@@ -230,21 +245,6 @@ paths:
                         tertiary:
                           type: string
                           description: Color terciario
-                    geolocation:
-                      type: object
-                      properties:
-                        country:
-                          type: string
-                          description: País
-                        department:
-                          type: string
-                          description: Departamento
-                        province:
-                          type: string
-                          description: Provincia
-                        district:
-                          type: string
-                          description: Distrito
   "/clients/{id}":
     get:
       summary: Detalle de un Cliente
