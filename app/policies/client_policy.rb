@@ -41,8 +41,9 @@ class ClientPolicy < ApplicationPolicy
       :active,
       :domain,
       :banner,
-      :social [:facebook, :twitter, :instagram],
-      :colors [:primary, :secondary, :tertiary]
+      :geolocation_id,
+      social: {},
+      colors: {}
     ]
   end
 

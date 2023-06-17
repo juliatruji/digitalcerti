@@ -155,6 +155,15 @@ RSpec.describe 'api/client', type: :request do
       parameter in: :body, schema: {
         type: :object,
         properties: {
+          geolocation: {
+            type: :object,
+            properties: {
+              country_id: { type: :integer, description: 'País' },
+              department_id: { type: :integer, description: 'Departamento' },
+              province_id: { type: :integer, description: 'Provincia' },
+              district_id: { type: :integer, description: 'Distrito' }
+            }
+          },
           client: {
             type: :object,
             properties: {
@@ -185,15 +194,6 @@ RSpec.describe 'api/client', type: :request do
                   primary: { type: :string, description: 'Color primario' },
                   secondary: { type: :string, description: 'Color secundario' },
                   tertiary: { type: :string, description: 'Color terciario' }
-                }
-              },
-              geolocation: {
-                type: :object,
-                properties: {
-                  country_id: { type: :integer, description: 'País' },
-                  department_id: { type: :integer, description: 'Departamento' },
-                  province_id: { type: :integer, description: 'Provincia' },
-                  district_id: { type: :integer, description: 'Distrito' }
                 }
               }
             }

@@ -16,7 +16,7 @@ class CreateClients < ActiveRecord::Migration[6.1]
       t.jsonb :colors, default: {}
       t.string :domain
       t.string :banner
-      t.references :geolocation, null: false, foreign_key: true
+      t.references :geolocation, null: true, foreign_key: true
 
       t.timestamps
     end

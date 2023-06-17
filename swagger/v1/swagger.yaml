@@ -296,6 +296,21 @@ paths:
             schema:
               type: object
               properties:
+                geolocation:
+                  type: object
+                  properties:
+                    country_id:
+                      type: integer
+                      description: País
+                    department_id:
+                      type: integer
+                      description: Departamento
+                    province_id:
+                      type: integer
+                      description: Provincia
+                    district_id:
+                      type: integer
+                      description: Distrito
                 client:
                   type: object
                   properties:
@@ -362,21 +377,6 @@ paths:
                         tertiary:
                           type: string
                           description: Color terciario
-                    geolocation:
-                      type: object
-                      properties:
-                        country_id:
-                          type: integer
-                          description: País
-                        department_id:
-                          type: integer
-                          description: Departamento
-                        province_id:
-                          type: integer
-                          description: Provincia
-                        district_id:
-                          type: integer
-                          description: Distrito
   "/users":
     get:
       summary: Lista de Usuarios

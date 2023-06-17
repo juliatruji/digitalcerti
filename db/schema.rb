@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
     t.jsonb "colors", default: {}
     t.string "domain"
     t.string "banner"
-    t.bigint "geolocation_id", null: false
+    t.bigint "geolocation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["geolocation_id"], name: "index_clients_on_geolocation_id"
@@ -93,8 +93,10 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
     t.bigint "department_id", null: false
     t.bigint "province_id"
     t.bigint "district_id"
+    t.bigint "country_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "index_geolocations_on_country_id"
     t.index ["department_id"], name: "index_geolocations_on_department_id"
     t.index ["district_id"], name: "index_geolocations_on_district_id"
     t.index ["province_id"], name: "index_geolocations_on_province_id"
@@ -178,6 +180,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
   add_foreign_key "clients", "geolocations"
   add_foreign_key "departments", "countries"
   add_foreign_key "districts", "provinces"
+  add_foreign_key "geolocations", "countries"
   add_foreign_key "geolocations", "departments"
   add_foreign_key "geolocations", "districts"
   add_foreign_key "geolocations", "provinces"

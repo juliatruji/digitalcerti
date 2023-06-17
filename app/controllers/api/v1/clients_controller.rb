@@ -18,8 +18,6 @@ class Api::V1::ClientsController < Api::V1::BaseController
   end
 
   def create
-    byebug
-
     client = Client.new(permitted_attributes(Client))
     authorize client
     if client.save
@@ -75,7 +73,7 @@ class Api::V1::ClientsController < Api::V1::BaseController
   end
 
   def permitted_geolocation_attributes
-    params.require(:client).require(:geolocation).permit(
+    params.require(:geolocation).permit(
       :country_id,
       :department_id,
       :province_id,
