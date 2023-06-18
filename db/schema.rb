@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
     t.string "code_phone"
     t.string "language"
     t.string "capital"
-    t.string "flag"
+    t.string "banner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :authentications, only: [:create]
       resources :users, only: [:index, :show, :create, :update]
       resources :clients, only: [:index, :show, :create, :update]
+      resources :countries, only: [:index, :show, :create, :update, :destroy]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
