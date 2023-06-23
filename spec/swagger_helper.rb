@@ -40,7 +40,8 @@ RSpec.configure do |config|
         schemas: {
           user: UserSchema::OBJECT,
           client: ClientSchema::OBJECT,
-          country: CountrySchema::OBJECT
+          country: CountrySchema::OBJECT,
+          department: DepartmentSchema::OBJECT
         }
       }
     }

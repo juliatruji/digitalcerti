@@ -573,6 +573,220 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/not_found"
+  "/departments":
+    get:
+      summary: Lista de Departamentos
+      tags:
+      - Departamentos
+      parameters:
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: |+
+          Búsqueda por:
+
+            * Nombre de Depositante
+
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de Departamentos
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/department"
+    post:
+      summary: Crear Departamento
+      tags:
+      - Departamentos
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Departamento creado
+        '422':
+          description: Error al crear Departamento
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                country_id:
+                  type: integer
+                  description: ID del país
+                name:
+                  type: string
+                  description: Nombre
+                var_name:
+                  type: string
+                  description: Nombre en el Sistema
+  "/departments/{id}":
+    get:
+      summary: Detalle de un Departamento
+      tags:
+      - Departamentos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Departamento encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/department"
+        '404':
+          description: Departamento no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Departamento
+      tags:
+      - Departamentos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Departamento actualizado
+        '422':
+          description: Error al actualizar el Departamento
+        '404':
+          description: Departamento no encontrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                country_id:
+                  type: integer
+                  description: ID del país
+                name:
+                  type: string
+                  description: Nombre
+                var_name:
+                  type: string
+                  description: Nombre en el Sistema
+    delete:
+      summary: Eliminar Departamento
+      tags:
+      - Departamentos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Departamento eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/department"
+        '422':
+          description: Error al eliminar Departamento
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Departamento no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
   "/users":
     get:
       summary: Lista de Usuarios
@@ -946,6 +1160,28 @@ components:
         capital:
           type: string
           description: Capital
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de actualización
+      required:
+      - id
+    department:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        name:
+          type: string
+          description: Nombre
+        var_name:
+          type: string
+          description: Nombre en el Sistema
         created_at:
           type: string
           format: date-time
