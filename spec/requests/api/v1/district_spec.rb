@@ -83,7 +83,7 @@ RSpec.describe 'api/district', type: :request do
       parameter in: :body, schema: {
         type: :object,
         properties: {
-          province_id: { type: :integer, description: 'ID del Provincia' },
+          province_id: { type: :integer, description: 'ID de Provincia' },
           name: { type: :string, description: 'Nombre' },
           var_name: { type: :string, description: 'Nombre en el Sistema' }
         }
