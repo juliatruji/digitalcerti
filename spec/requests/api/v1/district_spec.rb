@@ -85,7 +85,7 @@ RSpec.describe 'api/district', type: :request do
         properties: {
           province_id: { type: :integer, description: 'ID de Provincia' },
           name: { type: :string, description: 'Nombre' },
-          var_name: { type: :string, description: 'Nombre del Sistema' }
+          var_name: { type: :string, description: 'Nombre en el Sistema' }
         }
       }
       security [bearerAuth: []]
