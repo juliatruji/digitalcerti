@@ -1,4 +1,4 @@
-class Api::V1::DepartmentSerializer < Api::V1::ApplicationSerializer
+class Api::V1::DistrictSerializer < Api::V1::ApplicationSerializer
   attributes :id,
              :name,
              :var_name,

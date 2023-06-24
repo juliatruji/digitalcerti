@@ -787,6 +787,434 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/not_found"
+  "/districts":
+    get:
+      summary: Lista de Distritos
+      tags:
+      - Distritos
+      parameters:
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: |+
+          Búsqueda por:
+
+            * Nombre de Depositante
+
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de Departamentos
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/district"
+    post:
+      summary: Crear Distrito
+      tags:
+      - Distritos
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Distrito creado
+        '422':
+          description: Error al crear Distrito
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                province_id:
+                  type: integer
+                  description: ID de Provincia
+                name:
+                  type: string
+                  description: Nombre
+                var_name:
+                  type: string
+                  description: Nombre en el Sistema
+  "/districts/{id}":
+    get:
+      summary: Detalle de un Distrito
+      tags:
+      - Distritos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Distrito encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/district"
+        '404':
+          description: Distrito no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Distrito
+      tags:
+      - Distritos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Distrito actualizado
+        '422':
+          description: Error al actualizar el Distrito
+        '404':
+          description: Distrito no encontrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                province_id:
+                  type: integer
+                  description: ID de Provincia
+                name:
+                  type: string
+                  description: Nombre
+                var_name:
+                  type: string
+                  description: Nombre en el Sistema
+    delete:
+      summary: Eliminar Distrito
+      tags:
+      - Distritos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Distrito eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/district"
+        '422':
+          description: Error al eliminar Distrito
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Distrito no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+  "/provinces":
+    get:
+      summary: Lista de Provincias
+      tags:
+      - Provincias
+      parameters:
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: q
+        in: query
+        description: |+
+          Búsqueda por:
+
+            * Nombre de Depositante
+
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de Departamentos
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/province"
+    post:
+      summary: Crear Provincia
+      tags:
+      - Provincias
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Provincia creado
+        '422':
+          description: Error al crear Provincia
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                department_id:
+                  type: integer
+                  description: ID del departamento
+                name:
+                  type: string
+                  description: Nombre
+                var_name:
+                  type: string
+                  description: Nombre en el Sistema
+  "/provinces/{id}":
+    get:
+      summary: Detalle de una Provincia
+      tags:
+      - Provincias
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Provincia encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/province"
+        '404':
+          description: Provincia no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Provincia
+      tags:
+      - Provincias
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Provincia actualizado
+        '422':
+          description: Error al actualizar el Provincia
+        '404':
+          description: Provincia no encontrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                department_id:
+                  type: integer
+                  description: ID del departamento
+                name:
+                  type: string
+                  description: Nombre
+                var_name:
+                  type: string
+                  description: Nombre en el Sistema
+    delete:
+      summary: Eliminar Provincia
+      tags:
+      - Provincias
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Provincia eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/province"
+        '422':
+          description: Error al eliminar Provincia
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Provincia no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
   "/users":
     get:
       summary: Lista de Usuarios
@@ -1171,6 +1599,50 @@ components:
       required:
       - id
     department:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        name:
+          type: string
+          description: Nombre
+        var_name:
+          type: string
+          description: Nombre en el Sistema
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de actualización
+      required:
+      - id
+    province:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        name:
+          type: string
+          description: Nombre
+        var_name:
+          type: string
+          description: Nombre en el Sistema
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de actualización
+      required:
+      - id
+    district:
       type: object
       properties:
         id:

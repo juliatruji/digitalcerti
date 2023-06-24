@@ -41,7 +41,9 @@ RSpec.configure do |config|
           user: UserSchema::OBJECT,
           client: ClientSchema::OBJECT,
           country: CountrySchema::OBJECT,
-          department: DepartmentSchema::OBJECT
+          department: DepartmentSchema::OBJECT,
+          province: ProvinceSchema::OBJECT,
+          district: DistrictSchema::OBJECT
         }
       }
     }

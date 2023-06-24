@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :show, :create, :update]
       resources :clients, only: [:index, :show, :create, :update]
       resources :departments, only: [:index, :show, :create, :update, :destroy]
+      resources :provinces, only: [:index, :show, :create, :update, :destroy]
+      resources :districts, only: [:index, :show, :create, :update, :destroy]
       resources :countries, only: [:index, :show, :create, :update]
     end
   end
