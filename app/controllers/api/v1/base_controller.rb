@@ -47,5 +47,8 @@ class Api::V1::BaseController < ActionController::Base
     #     "script-src 'self'; " \
     #     "style-src 'self' ")
   end
-  
+
+  def origin
+    request.headers["Origin"] || "*"
+  end
 end
