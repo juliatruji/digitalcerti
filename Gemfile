@@ -24,6 +24,7 @@ gem 'active_model_serializers'
 gem 'byebug'
 gem 'carrierwave'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'faker'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production

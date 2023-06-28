@@ -94,6 +94,8 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.1)
     erubi (1.12.0)
+    faker (3.1.1)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -267,6 +269,7 @@ DEPENDENCIES
   byebug
   carrierwave
   devise
+  faker
   jwt
   kaminari
   listen (~> 3.3)

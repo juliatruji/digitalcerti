@@ -16,6 +16,19 @@ Client.find_or_create_by(
     geolocation_id: 1
 )
 
+20.times do
+   Client.find_or_create_by(
+    name: Faker::Company.name,
+    email: Faker::Internet.email,
+    phone: Faker::PhoneNumber.phone_number,
+    address: Faker::Address.street_address,
+    slug: Faker::Internet.slug,
+    tradename: Faker::Company.name,
+    description: Faker::Lorem.sentence,
+    geolocation_id: 1
+  )
+end
+
 User.find_or_create_by(email: 'super@super.com') do |user|
   user.name = 'SuperAdmin',
   user.phone = '989411601',
