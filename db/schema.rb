@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
     t.string "description"
     t.string "address"
     t.bigint "client_id", null: false
-    t.bigint "geolocation_id", null: false
+    t.bigint "geolocation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_locations_on_client_id"

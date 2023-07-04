@@ -43,7 +43,8 @@ RSpec.configure do |config|
           country: CountrySchema::OBJECT,
           department: DepartmentSchema::OBJECT,
           province: ProvinceSchema::OBJECT,
-          district: DistrictSchema::OBJECT
+          district: DistrictSchema::OBJECT,
+          location: LocationSchema::OBJECT
         }
       }
     }

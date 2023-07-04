@@ -61,7 +61,7 @@ class Api::V1::ClientsController < Api::V1::BaseController
       render json: {
         status: "error",
         message: "An error occurred while updating Client",
-        errors: @client.errors.full_messages,
+        errors: @client.errors.full_messages
       }, status: :unprocessable_entity
     end
   end
