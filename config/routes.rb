@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :provinces, only: [:index, :show, :create, :update, :destroy]
       resources :districts, only: [:index, :show, :create, :update, :destroy]
       resources :locations, only: [:index, :show, :create, :update, :destroy]
+      resources :certificate_categories, only: [:index, :show, :create, :update, :destroy]
       resources :countries, only: [:index, :show, :create, :update]
     end
   end
