@@ -4,6 +4,7 @@ RSpec.describe 'api/province', type: :request do
   path '/provinces' do
     get 'Lista de Provincias' do
       tags 'Provincias'
+      parameter name: :department_id, in: :query, type: :integer, description: 'ID de departamento'
       parameter name: :per_page, in: :query, type: :string, description: 'Cantidad de elementos por página'
       parameter name: :page, in: :query, type: :string, description: 'Página'
       parameter name: :q, in: :query, type: :string,

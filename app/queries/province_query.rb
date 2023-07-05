@@ -9,6 +9,7 @@ class ProvinceQuery < ApplicationQuery
   module Scopes
     def search_by_params(params)
       result = self
+      result = result.by_department(params[:department_id]) if params[:department_id].present?
       result = result.by_search_term(params[:q]) if params[:q].present?
       result = result.sort_by_column(params[:sort], [ 'created_at', 'updated_at', 'name' ], 'name asc')
       result
@@ -20,6 +21,10 @@ class ProvinceQuery < ApplicationQuery
                        OR provinces.var_name::text ILIKE :search",
                      search: search_key)
       result
+    end
+
+    def by_department(id)
+      where(department_id: id)
     end
   end
 end

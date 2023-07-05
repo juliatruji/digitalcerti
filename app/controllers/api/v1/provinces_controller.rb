@@ -94,6 +94,7 @@ class Api::V1::ProvincesController < Api::V1::BaseController
     params.permit(:q,
                   :from,
                   :to,
+                  :department_id,
                   :filter_range_date,
                   :sort)
   end

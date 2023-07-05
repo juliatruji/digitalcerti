@@ -92,6 +92,7 @@ class Api::V1::DistrictsController < Api::V1::BaseController
   end
   def search_permit_params
     params.permit(:q,
+                  :province_id,
                   :from,
                   :to,
                   :filter_range_date,

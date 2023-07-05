@@ -4,6 +4,7 @@ RSpec.describe 'api/district', type: :request do
   path '/districts' do
     get 'Lista de Distritos' do
       tags 'Distritos'
+      parameter name: :province_id, in: :query, type: :integer, description: 'ID de provincia'
       parameter name: :per_page, in: :query, type: :string, description: 'Cantidad de elementos por página'
       parameter name: :page, in: :query, type: :string, description: 'Página'
       parameter name: :q, in: :query, type: :string,
