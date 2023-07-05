@@ -4,6 +4,7 @@ RSpec.describe 'api/department', type: :request do
   path '/departments' do
     get 'Lista de Departamentos' do
       tags 'Departamentos'
+      parameter name: :country_id, in: :query, type: :integer, description: 'ID del pais'
       parameter name: :per_page, in: :query, type: :string, description: 'Cantidad de elementos por página'
       parameter name: :page, in: :query, type: :string, description: 'Página'
       parameter name: :q, in: :query, type: :string,

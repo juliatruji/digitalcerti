@@ -794,6 +794,11 @@ paths:
       tags:
       - Departamentos
       parameters:
+      - name: country_id
+        in: query
+        description: ID del pais
+        schema:
+          type: integer
       - name: per_page
         in: query
         description: Cantidad de elementos por página
