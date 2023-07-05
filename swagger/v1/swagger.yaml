@@ -1013,6 +1013,11 @@ paths:
       tags:
       - Distritos
       parameters:
+      - name: province_id
+        in: query
+        description: ID de provincia
+        schema:
+          type: integer
       - name: per_page
         in: query
         description: Cantidad de elementos por página
@@ -1494,6 +1499,11 @@ paths:
       tags:
       - Provincias
       parameters:
+      - name: department_id
+        in: query
+        description: ID de departamento
+        schema:
+          type: integer
       - name: per_page
         in: query
         description: Cantidad de elementos por página
