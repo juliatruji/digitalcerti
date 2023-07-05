@@ -4,13 +4,17 @@ RSpec.describe 'api/user', type: :request do
   path '/users' do
     get 'Lista de Usuarios' do
       tags 'Usuarios'
+      parameter name: :client_id, in: :query, type: :integer, description: 'ID del cliente'
+      parameter name: :active, in: :query, type: :boolean, description: 'Activo e Inactivo'
+      parameter name: :user_type, in: :query, type: :string, description: 'Tipo de usuario'
       parameter name: :per_page, in: :query, type: :string, description: 'Cantidad de elementos por página'
       parameter name: :page, in: :query, type: :string, description: 'Página'
       parameter name: :q, in: :query, type: :string,
                 description: <<~HEREDOC
                   Búsqueda por:
 
-                    * Nombre de Depositante
+                    * Nombre
+                    * Email
 
                 HEREDOC
       parameter name: :from,

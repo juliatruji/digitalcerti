@@ -1703,6 +1703,21 @@ paths:
       tags:
       - Usuarios
       parameters:
+      - name: client_id
+        in: query
+        description: ID del cliente
+        schema:
+          type: integer
+      - name: active
+        in: query
+        description: Activo e Inactivo
+        schema:
+          type: boolean
+      - name: user_type
+        in: query
+        description: Tipo de usuario
+        schema:
+          type: string
       - name: per_page
         in: query
         description: Cantidad de elementos por página
@@ -1718,7 +1733,8 @@ paths:
         description: |+
           Búsqueda por:
 
-            * Nombre de Depositante
+            * Nombre
+            * Email
 
         schema:
           type: string

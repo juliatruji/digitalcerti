@@ -5,7 +5,10 @@ class Api::V1::UsersController < Api::V1::BaseController
   before_action :find_user, only: [:show, :update]
 
   def index
-    users = policy_scope(User)
+    users = UserQuery.new(policy_scope(User))
+                             .relation
+                             .search_by_params(search_permit_params)
+
     paginate_items = paginate users, per_page: params[:per_page]
     render json: paginate_items, each_serializer: Api::V1::UserSerializer
   end
@@ -57,6 +60,8 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def search_permit_params
     params.permit(:client_id,
+                  :active,
+                  :user_type,
                   :q,
                   :from,
                   :to,
