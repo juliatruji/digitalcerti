@@ -10,6 +10,7 @@ class DepartmentQuery < ApplicationQuery
     def search_by_params(params)
       result = self
       result = result.by_search_term(params[:q]) if params[:q].present?
+      result = result.by_country(params[:country_id]) if params[:country_id].present?
       result = result.sort_by_column(params[:sort], [ 'created_at', 'updated_at', 'name' ], 'name asc')
       result
     end
@@ -20,6 +21,10 @@ class DepartmentQuery < ApplicationQuery
                        OR departments.var_name::text ILIKE :search",
                      search: search_key)
       result
+    end
+
+    def by_country(id)
+      where(country_id: id)
     end
   end
 end
