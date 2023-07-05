@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :districts, only: [:index, :show, :create, :update, :destroy]
       resources :locations, only: [:index, :show, :create, :update, :destroy]
       resources :certificate_categories, only: [:index, :show, :create, :update, :destroy]
-      resources :countries, only: [:index, :show, :create, :update]
+      resources :countries, only: [:index, :show, :create, :update, :destroy]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
