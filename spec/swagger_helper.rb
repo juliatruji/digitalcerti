@@ -45,7 +45,8 @@ RSpec.configure do |config|
           province: ProvinceSchema::OBJECT,
           district: DistrictSchema::OBJECT,
           location: LocationSchema::OBJECT,
-          certificate_category: CertificateCategorySchema::OBJECT
+          certificate_category: CertificateCategorySchema::OBJECT,
+          user_location: UserLocationSchema::OBJECT
         }
       }
     }

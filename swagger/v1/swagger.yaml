@@ -1712,6 +1712,181 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/not_found"
+  "/user_locations":
+    get:
+      summary: Lista de permisos
+      tags:
+      - Permisos
+      parameters:
+      - name: user_id
+        in: query
+        description: ID del Usuario
+        schema:
+          type: integer
+      - name: location_id
+        in: query
+        description: ID de Location
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de Permisos
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/user_location"
+    post:
+      summary: Crear Permiso
+      tags:
+      - Permisos
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: permiso creado
+        '422':
+          description: Error al crear permiso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_location:
+                  type: object
+                  properties:
+                    user_id:
+                      type: string
+                      description: ID del usuario
+                    location_id:
+                      type: integer
+                      description: ID de location
+  "/user_locations/{id}":
+    get:
+      summary: Detalle de un Permiso
+      tags:
+      - Permisos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Permiso encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/user_location"
+        '404':
+          description: Permiso no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Permiso
+      tags:
+      - Permisos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Permiso actualizado
+        '422':
+          description: Error al actualizar Permiso
+        '404':
+          description: Permiso no encontrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_location:
+                  type: object
+                  properties:
+                    user_id:
+                      type: string
+                      description: ID del usuario
+                    location_id:
+                      type: integer
+                      description: ID de location
   "/users":
     get:
       summary: Lista de Usuarios
@@ -2231,6 +2406,26 @@ components:
           description: Fecha de actualización
         client:
           "$ref": "#/components/schemas/client"
+      required:
+      - id
+    user_location:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de actualización
+        user:
+          "$ref": "#/components/schemas/user"
+        location:
+          "$ref": "#/components/schemas/location"
       required:
       - id
 ...

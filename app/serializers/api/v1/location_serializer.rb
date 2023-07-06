@@ -10,4 +10,5 @@ class Api::V1::LocationSerializer < Api::V1::ApplicationSerializer
   attribute(:logo) { file_serializer(:logo) }
   belongs_to :client, serializer: Api::V1::ClientSerializer
   belongs_to :geolocation, serializer: Api::V1::GeolocationSerializer
+  has_many :user_locations, serializer: Api::V1::UserLocationSerializer
 end
