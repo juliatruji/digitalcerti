@@ -26,6 +26,12 @@ class GeolocationPolicy < ApplicationPolicy
     false
   end
 
+  def destroy?
+    return true if user.super_admin?
+
+    false
+  end
+
   def permitted_attributes
     [
       :country_id,
