@@ -373,9 +373,9 @@ paths:
                     folio:
                       type: string
                       description: Folio
-                    record:
+                    register:
                       type: string
-                      description: Record
+                      description: Registro
                     description:
                       type: string
                       description: Descripcion
@@ -445,9 +445,9 @@ paths:
                     folio:
                       type: string
                       description: Folio
-                    record:
+                    register:
                       type: string
-                      description: Record
+                      description: Register
                     description:
                       type: string
                       description: Descripcion
@@ -2921,9 +2921,9 @@ components:
         folio:
           type: string
           description: Folio
-        record:
+        register:
           type: string
-          description: Record
+          description: Registro
         description:
           type: string
           description: Descripcion
