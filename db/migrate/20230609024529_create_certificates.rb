@@ -1,6 +1,6 @@
-class CreateCertificateDetails < ActiveRecord::Migration[6.1]
+class CreateCertificates < ActiveRecord::Migration[6.1]
   def change
-    create_table :certificate_details do |t|
+    create_table :certificates do |t|
       t.string :name
       t.string :folio
       t.string :record

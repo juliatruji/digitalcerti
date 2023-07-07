@@ -10,6 +10,7 @@ class User < ApplicationRecord
   }
   belongs_to :client
   has_many :user_locations, dependent: :destroy
+  has_many :locations, through: :user_locations, dependent: :destroy
   validates :email, presence: true, uniqueness: true
 
   def active_for_authentication?

@@ -5,6 +5,7 @@ class CreateStudentCertificates < ActiveRecord::Migration[6.1]
       t.date :expiration_date
       t.string :file
       t.references :student, null: false, foreign_key: true
+      t.references :certificate, null: false, foreign_key: true
       t.integer :status, default: 0
 
       t.timestamps
