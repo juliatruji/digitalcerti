@@ -12,7 +12,7 @@ class CreateClients < ActiveRecord::Migration[6.1]
       t.string :logo
       t.jsonb :social, default: {}
       t.string :website
-      t.boolean :active
+      t.boolean :active, default: true
       t.jsonb :colors, default: {}
       t.string :domain
       t.string :banner

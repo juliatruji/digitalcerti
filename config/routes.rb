@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       resources :certificate_categories, only: [:index, :show, :create, :update, :destroy]
       resources :user_locations, only: [:index, :show, :create, :update, :destroy]
       resources :geolocations, only: [:index, :show, :create, :update, :destroy]
+      resources :certificates, only: [:index, :show, :create, :update, :destroy]
       resources :countries, only: [:index, :show, :create, :update, :destroy]
     end
   end

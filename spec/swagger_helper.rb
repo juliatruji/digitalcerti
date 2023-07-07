@@ -47,6 +47,7 @@ RSpec.configure do |config|
           location: LocationSchema::OBJECT,
           certificate_category: CertificateCategorySchema::OBJECT,
           user_location: UserLocationSchema::OBJECT,
+          certificate: CertificateSchema::OBJECT,
           geolocation: GeolocationSchema::OBJECT
         }
       }

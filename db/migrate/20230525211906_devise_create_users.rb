@@ -10,6 +10,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      t.string   :unconfirmed_email
 
       ## Rememberable
       t.datetime :remember_created_at
@@ -34,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :phone
       t.integer :user_type
-      t.boolean :active
+      t.boolean :active, default: true
       t.references :client, null: false, foreign_key: true
 
 

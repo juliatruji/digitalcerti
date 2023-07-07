@@ -23,17 +23,17 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
     t.index ["client_id"], name: "index_certificate_categories_on_client_id"
   end
 
-  create_table "certificate_details", force: :cascade do |t|
+  create_table "certificates", force: :cascade do |t|
     t.string "name"
     t.string "folio"
-    t.string "record"
+    t.string "register"
     t.string "description"
-    t.bigint "location_id", null: false
+    t.bigint "location_id"
     t.bigint "certificate_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["certificate_category_id"], name: "index_certificate_details_on_certificate_category_id"
-    t.index ["location_id"], name: "index_certificate_details_on_location_id"
+    t.index ["certificate_category_id"], name: "index_certificates_on_certificate_category_id"
+    t.index ["location_id"], name: "index_certificates_on_location_id"
   end
 
   create_table "clients", force: :cascade do |t|
@@ -131,9 +131,11 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
     t.date "expiration_date"
     t.string "file"
     t.bigint "student_id", null: false
+    t.bigint "certificate_id", null: false
     t.integer "status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["certificate_id"], name: "index_student_certificates_on_certificate_id"
     t.index ["student_id"], name: "index_student_certificates_on_student_id"
   end
 
@@ -179,8 +181,8 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
   end
 
   add_foreign_key "certificate_categories", "clients"
-  add_foreign_key "certificate_details", "certificate_categories"
-  add_foreign_key "certificate_details", "locations"
+  add_foreign_key "certificates", "certificate_categories"
+  add_foreign_key "certificates", "locations"
   add_foreign_key "clients", "geolocations"
   add_foreign_key "departments", "countries"
   add_foreign_key "districts", "provinces"
@@ -191,6 +193,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
   add_foreign_key "locations", "clients"
   add_foreign_key "locations", "geolocations"
   add_foreign_key "provinces", "departments"
+  add_foreign_key "student_certificates", "certificates"
   add_foreign_key "student_certificates", "students"
   add_foreign_key "user_locations", "locations"
   add_foreign_key "user_locations", "users"

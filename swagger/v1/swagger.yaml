@@ -253,6 +253,250 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/not_found"
+  "/certificates":
+    get:
+      summary: Lista de Certificados
+      tags:
+      - Certificados
+      parameters:
+      - name: location_id
+        in: query
+        description: ID del Campus
+        schema:
+          type: integer
+      - name: certificate_category_id
+        in: query
+        description: ID de Categoria de certificado
+        schema:
+          type: integer
+      - name: q
+        in: query
+        description: Búsqueda por (Nombre, Record Folio)
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de certificados
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/certificate"
+    post:
+      summary: Crear Certificado
+      tags:
+      - Certificados
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Certificado creado
+        '422':
+          description: Error al crear certificado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                certificate:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Nombre
+                    folio:
+                      type: string
+                      description: Folio
+                    record:
+                      type: string
+                      description: Record
+                    description:
+                      type: string
+                      description: Descripcion
+                    location_id:
+                      type: integer
+                      description: ID de location
+                    certificate_category_id:
+                      type: integer
+                      description: ID de Categoria de Certificado
+  "/certificates/{id}":
+    get:
+      summary: Detalle de un Certificado
+      tags:
+      - Certificados
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Certificado encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/certificate"
+        '404':
+          description: Certificado no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Certificado
+      tags:
+      - Certificados
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Certificado actualizado
+        '422':
+          description: Error al actualizar Certificado
+        '404':
+          description: Certificado no encontrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                certificate:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Nombre
+                    folio:
+                      type: string
+                      description: Folio
+                    record:
+                      type: string
+                      description: Record
+                    description:
+                      type: string
+                      description: Descripcion
+                    location_id:
+                      type: integer
+                      description: ID de location
+                    certificate_category_id:
+                      type: integer
+                      description: ID de Categoria de Certificado
+    delete:
+      summary: Eliminar Certificado
+      tags:
+      - Certificados
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Certificado eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/certificate"
+        '422':
+          description: Error al eliminar Certificado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Certificado no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
   "/clients":
     get:
       summary: Lista de Clientes
@@ -2663,6 +2907,38 @@ components:
           "$ref": "#/components/schemas/user"
         location:
           "$ref": "#/components/schemas/location"
+      required:
+      - id
+    certificate:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID
+        name:
+          type: string
+          description: Nombre
+        folio:
+          type: string
+          description: Folio
+        record:
+          type: string
+          description: Record
+        description:
+          type: string
+          description: Descripcion
+        created_at:
+          type: string
+          format: date-time
+          description: Fecha de creación
+        updated_at:
+          type: string
+          format: date-time
+          description: Fecha de actualización
+        location:
+          "$ref": "#/components/schemas/location"
+        certificate_category:
+          "$ref": "#/components/schemas/certificate_category"
       required:
       - id
     geolocation:
