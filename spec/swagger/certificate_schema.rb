@@ -5,7 +5,7 @@ module CertificateSchema
       id: { type: :integer, description: 'ID' },
       name: { type: :string, description: 'Nombre' },
       folio: { type: :string, description: 'Folio' },
-      record: { type: :string, description: 'Record' },
+      register: { type: :string, description: 'Registro' },
       description: { type: :string, description: 'Descripcion' },
       created_at: { type: :string, format: 'date-time', description: 'Fecha de creación' },
       updated_at: { type: :string, format: 'date-time', description: 'Fecha de actualización' },
