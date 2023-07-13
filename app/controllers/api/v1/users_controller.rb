@@ -2,7 +2,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   include Rails::Pagination
   # before_action :authenticate_user!
   before_action :ensure_and_set_current_user
-  before_action :find_user, only: [:show, :update]
+  before_action :find_user, only: [:show, :update, :destroy]
 
   def index
     users = UserQuery.new(policy_scope(User))
@@ -47,6 +47,23 @@ class Api::V1::UsersController < Api::V1::BaseController
       render json: {
         status: "error",
         message: "An error occurred while updating User",
+        errors: @user.errors.full_messages
+      }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    authorize @user
+    if @user.destroy
+      render json: {
+        status: "success",
+        message: "Successfully delete User",
+        data: ActiveModelSerializers::Adapter::Json.new(Api::V1::UserSerializer.new(@user)).as_json
+      }, status: :ok
+    else
+      render json: {
+        status: "error",
+        message: "An error occurred while deleting",
         errors: @user.errors.full_messages
       }, status: :unprocessable_entity
     end

@@ -2596,6 +2596,46 @@ paths:
                     client_id:
                       type: integer
                       description: ID del Cliente
+    delete:
+      summary: Eliminar Usuario
+      tags:
+      - Usuarios
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Usuario eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/user"
+        '422':
+          description: Error al eliminar Usuario
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Usuario no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
 servers:
 - url: http://localhost:3000/api/v1
 components:

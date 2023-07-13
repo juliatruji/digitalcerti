@@ -31,6 +31,14 @@ class UserPolicy < ApplicationPolicy
     false
   end
 
+  def destroy?
+    return true if user.super_admin?
+    return true if user.client_admin? && owner?
+    return true if user.location_admin? && user_locations.include?(record.location_id)
+
+    false
+  end
+
   def permitted_attributes_for_create
     [
       :name,
