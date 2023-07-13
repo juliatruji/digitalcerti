@@ -21,13 +21,15 @@ class Api::V1::ClientsController < Api::V1::BaseController
     client = Client.new(permitted_attributes(Client))
     authorize client
     if client.save
-      geolocation = Geolocation.find_by(permitted_geolocation_attributes)
+      if params[:geolocation].present? && permitted_geolocation_attributes.present?
+        geolocation = Geolocation.find_by(permitted_geolocation_attributes)
 
-      if geolocation
-        client.update(geolocation: geolocation)
-      else
-        geolocation = Geolocation.create(permitted_geolocation_attributes)
-        client.update(geolocation: geolocation)
+        if geolocation
+          client.update(geolocation: geolocation)
+        else
+          geolocation = Geolocation.create(permitted_geolocation_attributes)
+          client.update(geolocation: geolocation)
+        end
       end
       render json: {
         status: "success",
