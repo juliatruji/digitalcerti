@@ -85,10 +85,10 @@ RSpec.describe 'api/client', type: :request do
           geolocation: {
             type: :object,
             properties: {
-              country: { type: :string, description: 'País' },
-              department: { type: :string, description: 'Departamento' },
-              province: { type: :string, description: 'Provincia' },
-              district: { type: :string, description: 'Distrito' }
+              country_id: { type: :integer, description: 'País' },
+              department_id: { type: :integer, description: 'Departamento' },
+              province_id: { type: :integer, description: 'Provincia' },
+              district_id: { type: :integer, description: 'Distrito' }
             }
           },
 

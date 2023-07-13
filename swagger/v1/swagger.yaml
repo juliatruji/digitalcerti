@@ -626,17 +626,17 @@ paths:
                 geolocation:
                   type: object
                   properties:
-                    country:
-                      type: string
+                    country_id:
+                      type: integer
                       description: País
-                    department:
-                      type: string
+                    department_id:
+                      type: integer
                       description: Departamento
-                    province:
-                      type: string
+                    province_id:
+                      type: integer
                       description: Provincia
-                    district:
-                      type: string
+                    district_id:
+                      type: integer
                       description: Distrito
                 client:
                   type: object
