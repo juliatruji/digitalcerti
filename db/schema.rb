@@ -145,8 +145,10 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
     t.string "email"
     t.string "identification"
     t.string "address"
+    t.bigint "location_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_students_on_location_id"
   end
 
   create_table "user_locations", force: :cascade do |t|
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(version: 2023_06_09_025151) do
   add_foreign_key "provinces", "departments"
   add_foreign_key "student_certificates", "certificates"
   add_foreign_key "student_certificates", "students"
+  add_foreign_key "students", "locations"
   add_foreign_key "user_locations", "locations"
   add_foreign_key "user_locations", "users"
   add_foreign_key "users", "clients"

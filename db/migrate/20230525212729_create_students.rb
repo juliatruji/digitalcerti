@@ -6,6 +6,7 @@ class CreateStudents < ActiveRecord::Migration[6.1]
       t.string :email
       t.string :identification
       t.string :address
+      t.references :location, null: true, foreign_key: true
 
       t.timestamps
     end

@@ -2193,6 +2193,245 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/not_found"
+  "/students":
+    get:
+      summary: Lista de Estudiantes
+      tags:
+      - Estudiantes
+      parameters:
+      - name: location_id
+        in: query
+        description: ID del Campus
+        schema:
+          type: integer
+      - name: q
+        in: query
+        description: Búsqueda por (Nombre, Correo, Telefono, Identificacion)
+        schema:
+          type: string
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de estudiantes
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/student"
+    post:
+      summary: Crear Estudiante
+      tags:
+      - Estudiantes
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Estudiante creado
+        '422':
+          description: Error al crear Estudiante
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Nombre
+                    email:
+                      type: string
+                      description: Correo
+                    phone:
+                      type: string
+                      description: Telefono
+                    identification:
+                      type: string
+                      description: Identificación
+                    address:
+                      type: string
+                      description: Dirección
+                    location_id:
+                      type: integer
+                      description: ID de location
+  "/students/{id}":
+    get:
+      summary: Detalle de un Estudiante
+      tags:
+      - Estudiantes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Estudiante encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/student"
+        '404':
+          description: Estudiante no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Estudiante
+      tags:
+      - Estudiantes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Estudiante actualizado
+        '422':
+          description: Error al actualizar Estudiante
+        '404':
+          description: Estudiante no encontrado
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                student:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Nombre
+                    email:
+                      type: string
+                      description: Correo
+                    phone:
+                      type: string
+                      description: Telefono
+                    identification:
+                      type: string
+                      description: Identificación
+                    address:
+                      type: string
+                      description: Dirección
+                    location_id:
+                      type: integer
+                      description: ID de location
+    delete:
+      summary: Eliminar Estudiante
+      tags:
+      - Estudiantes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Estudiante eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/student"
+        '422':
+          description: Error al eliminar Estudiante
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Estudiante no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
   "/user_locations":
     get:
       summary: Lista de permisos
