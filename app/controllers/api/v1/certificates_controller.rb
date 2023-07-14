@@ -2,7 +2,7 @@ class Api::V1::CertificatesController < Api::V1::BaseController
   include Rails::Pagination
 
   before_action :ensure_and_set_current_user
-  before_action :find_certificate, only: [:show, :update]
+  before_action :find_certificate, only: [:show, :update, :destroy]
 
   def index
     certificates = CertificateQuery.new(policy_scope(Certificate))
