@@ -1,4 +1,4 @@
-DB_USERNAME: 'juliet'
-DB_PASSWORD: 'password'
+DB_USERNAME: 'jeanpaul'
+DB_PASSWORD: 'jeanpaul'
 DB_NAME: 'digitalcerti'
 DB_HOST: 'localhost'
