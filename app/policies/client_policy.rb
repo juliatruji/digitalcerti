@@ -25,6 +25,13 @@ class ClientPolicy < ApplicationPolicy
 
     false
   end
+  
+  def destroy?
+    return true if user.super_admin?
+    return true if user.client_admin? && owner?
+
+    false
+  end
 
   def permitted_attributes
     [

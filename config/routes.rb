@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       resources :authentications, only: [:create]
       resources :users, only: [:index, :show, :create, :update, :destroy]
-      resources :clients, only: [:index, :show, :create, :update, :client]
+      resources :clients, only: [:index, :show, :create, :update, :destroy]
       resources :departments, only: [:index, :show, :create, :update, :destroy]
       resources :provinces, only: [:index, :show, :create, :update, :destroy]
       resources :districts, only: [:index, :show, :create, :update, :destroy]
