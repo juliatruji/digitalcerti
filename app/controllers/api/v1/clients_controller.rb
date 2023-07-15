@@ -2,7 +2,7 @@ class Api::V1::ClientsController < Api::V1::BaseController
   include Rails::Pagination
 
   before_action :ensure_and_set_current_user
-  before_action :find_client, only: [:show, :update]
+  before_action :find_client, only: [:show, :updat, :destroy]
 
   def index
     clients = ClientQuery.new(policy_scope(Client))
@@ -71,6 +71,22 @@ class Api::V1::ClientsController < Api::V1::BaseController
     end
   end
 
+  def destroy
+    authorize @client
+    if @client.destroy
+      render json: {
+        status: "success",
+        message: "Successfully delete client",
+        data: ActiveModelSerializers::Adapter::Json.new(Api::V1::ClientSerializer.new(@client)).as_json
+      }, status: :ok
+    else
+      render json: {
+        status: "error",
+        message: "An error occurred while deleting",
+        errors: @client.errors.full_messages
+      }, status: :unprocessable_entity
+    end
+  end
   private
 
   def find_client

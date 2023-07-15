@@ -223,4 +223,33 @@ RSpec.describe 'api/client', type: :request do
       end
     end
   end
+
+  path '/clients/{id}' do
+    delete 'Eliminar Cliente' do
+      tags 'Clientes'
+      parameter name: :id, in: :path, type: :string
+      produces 'application/json'
+      security [bearerAuth: []]
+
+      response '200', 'Cliente eliminado' do
+        schema type: :object,
+               properties: {
+                 status: { type: :string, description: 'Estado' },
+                 message: { type: :string, description: 'Mensaje o descripción' },
+                 data: { '$ref' => '#/components/schemas/client' }
+               }
+        run_test!
+      end
+
+      response '422', 'Error al eliminar Cliente' do
+        schema '$ref' => '#/components/schemas/unprocessable_entity'
+        run_test!
+      end
+
+      response '404', 'Cliente no encontrada' do
+        schema '$ref' => '#/components/schemas/not_found'
+        run_test!
+      end
+    end
+  end
 end

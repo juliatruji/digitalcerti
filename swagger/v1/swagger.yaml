@@ -619,7 +619,7 @@ paths:
           description: Error al crear Cliente
       requestBody:
         content:
-          application/json:
+          multipart/form-data:
             schema:
               type: object
               properties:
@@ -836,6 +836,46 @@ paths:
                         tertiary:
                           type: string
                           description: Color terciario
+    delete:
+      summary: Eliminar Cliente
+      tags:
+      - Clientes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Cliente eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/client"
+        '422':
+          description: Error al eliminar Cliente
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Cliente no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
   "/countries":
     get:
       summary: Lista de Paises
@@ -2193,6 +2233,241 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/not_found"
+  "/student_certificates":
+    get:
+      summary: Lista de Certificados del estudiante
+      tags:
+      - Certificados Estudiantes
+      parameters:
+      - name: student_id
+        in: query
+        description: ID del Campus
+        schema:
+          type: integer
+      - name: status
+        in: query
+        description: Activo e Inactivo
+        schema:
+          type: boolean
+      - name: certificate_id
+        in: query
+        description: ID de Categoria de certificado
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        description: Cantidad de elementos por página
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Página
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Inicial'
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date
+        description: 'Rango: Fecha Final'
+      - name: filter_range_date
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at
+          - updated_at
+          - start_date
+          - end_date
+        description: |+
+          Rango: Usar
+
+            * **[created_at]** Fechas de Creación de los Registros <small>*(Por defecto)*</small>
+            * **[updated_at]** Fechas de Actualización de los Registros
+
+      - name: sort
+        in: query
+        schema:
+          type: string
+          enum:
+          - created_at:desc
+          - created_at:asc
+          - updated_at:desc
+          - updated_at:asc
+        description: |+
+          #### Ordenar:
+
+            * **[created_at:desc]** Últimos creados al inicio
+            * **[created_at:asc]** Últimos creados al final
+            * **[updated_at:desc]** Últimos actualizados al inicio
+            * **[updated_at:asc]** Últimos actualizados al final
+
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Lista de certificados del estudiante
+          headers:
+            Per-page:
+              type: integer
+              description: Total de elementos por página
+            Total:
+              type: integer
+              description: Total de elementos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  "$ref": "#/components/schemas/student_certificate"
+    post:
+      summary: Crear Certificado del estudiante
+      tags:
+      - Certificados Estudiantes
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: certificado del estudiante creado
+        '422':
+          description: Error al crear certificado del estudiante
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                student_certificate[issue_date]:
+                  type: string
+                  description: Fecha de Emisión
+                student_certificate[file]:
+                  type: string
+                  format: binary
+                  description: Archivo
+                student_certificate[expiration_date]:
+                  type: string
+                  description: Fecha de caducidad
+                student_certificate[student_id]:
+                  type: string
+                  description: ID del estudiante
+                student_certificate[status]:
+                  type: boolean
+                  description: Activo o Inactivo
+                student_certificate[certificate_id]:
+                  type: string
+                  description: ID  del certificado
+  "/student_certificates/{id}":
+    get:
+      summary: Detalle de Certificados del estudiante
+      tags:
+      - Certificados Estudiantes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Certificado del estudiante encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/student_certificate"
+        '404':
+          description: Certificado del estudiante no encontrado
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
+    patch:
+      summary: Actualizar Certificado del estudiante
+      tags:
+      - Certificados Estudiantes
+      parameters: []
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Certificado del estudiante actualizado
+        '422':
+          description: Error al actualizar Certificado del estudiante
+        '404':
+          description: Certificado del estudiante no encontrado
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                student_certificate[issue_date]:
+                  type: string
+                  description: Fecha de Emisión
+                student_certificate[file]:
+                  type: string
+                  format: binary
+                  description: Archivo
+                student_certificate[expiration_date]:
+                  type: string
+                  description: Fecha de caducidad
+                student_certificate[student_id]:
+                  type: string
+                  description: ID del estudiante
+                student_certificate[status]:
+                  type: boolean
+                  description: Activo o Inactivo
+                student_certificate[certificate_id]:
+                  type: string
+                  description: ID  del certificado
+    delete:
+      summary: Eliminar Certificado del estudiante
+      tags:
+      - Certificados Estudiantes
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Certificado del estudiante eliminado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado
+                  message:
+                    type: string
+                    description: Mensaje o descripción
+                  data:
+                    "$ref": "#/components/schemas/student_certificate"
+        '422':
+          description: Error al eliminar Certificado del estudiante
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/unprocessable_entity"
+        '404':
+          description: Certificado del estudiante no encontrada
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/not_found"
   "/students":
     get:
       summary: Lista de Estudiantes
@@ -3242,6 +3517,28 @@ components:
           "$ref": "#/components/schemas/province"
         district:
           "$ref": "#/components/schemas/district"
+      required:
+      - id
+    student:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Nombre
+        email:
+          type: string
+          description: Correo
+        phone:
+          type: string
+          description: Telefono
+        identification:
+          type: string
+          description: Identificación
+        address:
+          type: string
+          description: Dirección
+        location:
+          "$ref": "#/components/schemas/location"
       required:
       - id
 ...

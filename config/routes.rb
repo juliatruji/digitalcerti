@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     namespace :v1, defaults: { format: :json } do
       resources :authentications, only: [:create]
       resources :users, only: [:index, :show, :create, :update, :destroy]
-      resources :clients, only: [:index, :show, :create, :update]
+      resources :clients, only: [:index, :show, :create, :update, :client]
       resources :departments, only: [:index, :show, :create, :update, :destroy]
       resources :provinces, only: [:index, :show, :create, :update, :destroy]
       resources :districts, only: [:index, :show, :create, :update, :destroy]
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :students, only: [:index, :show, :create, :update, :destroy]
       resources :geolocations, only: [:index, :show, :create, :update, :destroy]
       resources :certificates, only: [:index, :show, :create, :update, :destroy]
+      resources :student_certificates, only: [:index, :show, :create, :update, :destroy]
       resources :countries, only: [:index, :show, :create, :update, :destroy]
     end
   end
